@@ -36,16 +36,16 @@ const Navbar = () => {
         </div>
         <ul className="hidden md:flex items-center gap-10 text-gray-700 font-bold">
           <li>
-            <a href="#home">Home</a>
+            <a href="/home">Home</a>
           </li>
           <li>
-            <a href="#recipes">Recipes</a>
+            <a href="/recipes">Recipes</a>
           </li>
           <li>
-            <a href="#about">About</a>
+            <a href="/about">About</a>
           </li>
           <li>
-            <a href="#contact">Contact</a>
+            <a href="/contact">Contact</a>
           </li>
           <li>
             <DropdownMenu>
@@ -94,16 +94,16 @@ const Navbar = () => {
 
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>
-                  <a href="#home">Home</a>
+                  <a href="/home">Home</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <a href="#recipes">Recipes</a>
+                  <a href="/recipes">Recipes</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <a href="#about">About</a>
+                  <a href="/about">About</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <a href="#contact">Contact</a>
+                  <a href="/contact">Contact</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Button className="bg-blue-500 hover:bg-blue-600 text-white">
