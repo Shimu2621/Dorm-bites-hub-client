@@ -1,4 +1,4 @@
-export interface MealTypes {
+export interface IMealTypes {
   _id: string;
   adminName: string;
   admin_Email: string;

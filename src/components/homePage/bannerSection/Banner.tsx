@@ -28,11 +28,11 @@ const Banner = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
           {/* Left section */}
           <div className="mb-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-500 italic mb-6">
+            <h1 className="text-4xl md:text-5xl  font-bold text-primary italic mb-6">
               Enhance Your University Life with Luxurious Hostel Living and
               Exquisite Dining!
             </h1>
-            <p className="text-lg text-gray-700 mb-6">
+            <p className="text-lg text-gray-color mb-6">
               Discover a seamless blend of comfort and taste at DormBitesHub.
               Elevate your stay with an environment designed for both relaxation
               and productivity. Experience premium student living with modern
@@ -41,12 +41,12 @@ const Banner = () => {
             </p>
             {/* Buttons */}
             <div className="flex justify-start space-x-4">
-              <Button className="bg-blue-500 font-bold hover:bg-white hover:border-2 hover:border-blue-500 hover:text-blue-500">
+              <Button className="bg-primary text-default-white font-bold hover:bg-background hover:border-2 hover:border-primary hover:text-primary">
                 Get Started
               </Button>
 
               {/* Secondary Button with Glassmorphism Effect */}
-              <Button className="bg-pink-600 font-bold hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600">
+              <Button className="bg-pink-600 text-default-white font-bold hover:bg-background hover:border-2 hover:border-pink-600 hover:text-pink-600">
                 Learn More
               </Button>
             </div>

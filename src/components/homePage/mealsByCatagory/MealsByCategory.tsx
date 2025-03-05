@@ -32,7 +32,7 @@ const MealsByCategory = ({ meals }: { meals: MealTypes[] }) => {
   console.log(meals);
 
   return (
-    <div className="bg-white pt-20">
+    <div className="bg-background pt-20">
       <Container>
         <div className="text-center mx-auto">
           <h2 className="text-4xl text-blue-500 font-bold italic">

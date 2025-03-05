@@ -17,7 +17,7 @@ import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <Card className="mx-auto bg-white py-3 px-3 border-0 flex items-center justify-between gap-10 rounded-none">
+    <Card className="mx-auto bg-background py-3 px-3 border-0 flex items-center justify-between gap-10 rounded-none">
       {/* <ShadcnKit className="text-primary cursor-pointer" /> */}
 
       <Container className="flex items-center justify-center w-full">
@@ -30,11 +30,11 @@ const Navbar = () => {
             height={50}
             className="w-16 h-16 rounded-full  object-cover"
           />
-          <span className="absolute left-13 text-xl italic font-bold text-gray-700">
+          <span className="absolute left-13 text-xl italic font-bold text-gray-color">
             ormBites Hub
           </span>
         </div>
-        <ul className="hidden md:flex items-center gap-10 text-gray-700 font-bold">
+        <ul className="hidden md:flex items-center gap-10 font-bold text-gray-color">
           <li>
             <a href="/home">Home</a>
           </li>
