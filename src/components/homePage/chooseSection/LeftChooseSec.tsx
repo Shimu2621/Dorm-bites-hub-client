@@ -6,7 +6,7 @@ const LeftChooseSec = () => {
       <ul>
         <li className="flex items-start gap-4 pb-6">
           <div className="flex flex-col items-end">
-            <h1 className="text-xl font-semibold mb-2">Fast Delivery</h1>
+            <h1 className="text-xl font-bold mb-2">Fast Delivery</h1>
             <p className="text-end">
               Get your favorite meals delivered to our dorm quickly and on time,
               ensure you never go hungry.
@@ -24,7 +24,7 @@ const LeftChooseSec = () => {
         </li>
         <li className="flex gap-4 pb-6">
           <div className="flex flex-col items-end justify-end">
-            <h1 className="text-xl font-semibold mb-2">Affordable Prices</h1>
+            <h1 className="text-xl font-bold mb-2">Affordable Prices</h1>
             <p className="text-end">
               Enjoy delicious food at budget-friendly prices, perfect for
               students looking for quality meals.
@@ -42,7 +42,7 @@ const LeftChooseSec = () => {
         </li>
         <li className="flex gap-4 pb-6">
           <div className="flex flex-col items-end justify-end">
-            <h1 className="text-xl font-semibold mb-2">Variety of Meals</h1>
+            <h1 className="text-xl font-bold mb-2">Variety of Meals</h1>
             <p className="text-end">
               Choose from a diverse menu, including local favorites,
               international cuisines, and healthy meal.
@@ -54,7 +54,7 @@ const LeftChooseSec = () => {
               alt="choose-icons"
               width={35}
               height={35}
-              className="w-24 h-16 object-contain"
+              className="w-24 h-12 object-contain"
             />
           </div>
         </li>

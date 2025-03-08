@@ -7,7 +7,7 @@ const Choose = () => {
   return (
     <div className="bg-background py-20">
       <div className="text-center mx-auto ">
-        <h1 className="text-blue-500 font-bold italic text-3xl">
+        <h1 className="text-blue-500 font-bold italic text-4xl">
           Why Choose Us
         </h1>
         <p className="text-gray-color">
@@ -19,19 +19,19 @@ const Choose = () => {
         {/* Choose Us section */}
         <div className="grid grid-cols-3 mx-auto items-center gap-8 pt-10">
           {/* Left section */}
-          <LeftChooseSec/>
+          <LeftChooseSec />
           {/* Middle section */}
           <div className="flex justify-center w-auto">
             <Image
-              src="https://img.freepik.com/premium-photo/friends-gathering-daily-life-drinking-eating-together_936393-789.jpg"
-              alt="choose-icons"
+              src="https://img.freepik.com/premium-photo/chef-standing-full-lunch-service-station-with-assortment-food-trays-isolated-with_660230-38662.jpg"
+              alt="Choose-icon"
               width={320}
               height={320}
-              className="w-80 h-80 object-contain rounded-2xl"
+              className="w-90 h-90 object-contain rounded-2xl"
             />
           </div>
           {/* Right section */}
-          <RightChooseSec/>
+          <RightChooseSec />
         </div>
       </Container>
     </div>

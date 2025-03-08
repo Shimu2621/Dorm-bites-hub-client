@@ -1,16 +1,16 @@
 import Banner from "@/components/homePage/bannerSection/Banner";
 import Choose from "@/components/homePage/chooseSection/Choose";
-import MealsCategory from "@/components/homePage/mealsCategory/MealsCategory";
-import Services from "@/components/homePage/serviceSection/Services";
+import MealsByCategory from "@/components/homePage/mealsByCategory/MealsByCategory";
 
+import Services from "@/components/homePage/serviceSection/Services";
 
 export default function Home() {
   return (
     <div>
       <Banner />
       <Services />
+      <MealsByCategory />
       <Choose />
-      <MealsCategory/>
     </div>
   );
 }

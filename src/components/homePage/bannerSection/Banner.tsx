@@ -54,13 +54,6 @@ const Banner = () => {
 
           {/* Right Section */}
           <div className="w-full max-w-[800px] ">
-            {/* <Image
-              width={604}
-              height={280}
-              src="https://img.freepik.com/premium-photo/gourmet-dish-being-prepared-highend-restaurant-kitchen_941600-12208.jpg"
-              alt=""
-              className="w-[50vw] h-[70vh] rounded-md object-contain"
-            /> */}
             <Swiper
               direction={"vertical"}
               slidesPerView={1}

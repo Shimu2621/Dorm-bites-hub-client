@@ -34,12 +34,15 @@ const Navbar = () => {
             ormBites Hub
           </span>
         </div>
-        <ul className="hidden md:flex items-center gap-10 font-bold text-gray-color">
+        <ul className="hidden md:flex items-center gap-6 font-bold text-gray-color">
           <li>
-            <a href="/home">Home</a>
+            <Link href="/home">Home</Link>
           </li>
           <li>
-            <a href="/recipes">Recipes</a>
+            <Link href="/meals">Meals</Link>
+          </li>
+          <li className="w-[127px]">
+            <Link href="/upComing-Meals">Upcoming Meals</Link>
           </li>
           <li>
             <a href="/about">About</a>
@@ -65,9 +68,11 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center pl-16 gap-8">
-          <Button className="bg-blue-500 hover:bg-blue-600 text-white">
-            Login
-          </Button>
+          <Link href="/login">
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+              Login
+            </Button>
+          </Link>
           {/* <Button className="hidden md:block ml-2 mr-2">Get Started</Button> */}
 
           <div className="flex md:hidden mr-2 items-center gap-2">

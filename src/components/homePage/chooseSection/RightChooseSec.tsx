@@ -11,11 +11,11 @@ const RightChooseSec = () => {
               alt="choose-icons"
               width={35}
               height={35}
-              className="w-24 h-16 object-contain"
+              className="w-24 h-12 object-contain"
             />
           </div>
           <div>
-            <h1 className="text-xl font-semibold mb-2">Easy Ordering</h1>
+            <h1 className="text-xl font-bold mb-2">Easy Ordering</h1>
             <p>
               Our user-friendly app makes ordering seamless, and you can track
               your order in real time.
@@ -30,11 +30,11 @@ const RightChooseSec = () => {
               alt="choose-icons"
               width={35}
               height={35}
-              className="w-24 h-16 object-contain"
+              className="w-24 h-12 object-contain"
             />
           </div>
           <div>
-            <h1 className="text-xl font-semibold mb-2">24/7 Availability</h1>
+            <h1 className="text-xl font-bold mb-2">24/7 Availability</h1>
             <p>
               Whether it`&apos;s an early breakfast or a late-night study snack,
               we’re always available to serve you.
@@ -49,11 +49,11 @@ const RightChooseSec = () => {
               alt="choose-icons"
               width={35}
               height={35}
-              className="w-24 h-16 object-contain"
+              className="w-24 h-12 object-contain"
             />
           </div>
           <div className="">
-            <h1 className="text-xl font-semibold mb-2">Exclusive Discounts</h1>
+            <h1 className="text-xl font-bold mb-2">Exclusive Discounts</h1>
             <p>
               Unlock special offers, discounts, and meal combos designed
               exclusively for students.
