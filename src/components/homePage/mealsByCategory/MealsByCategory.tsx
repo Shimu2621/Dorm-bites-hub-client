@@ -10,8 +10,6 @@ import Container from "@/utils/container/Container";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 const MealsByCategory = () => {
   const [meals, setMeals] = useState<IMealTypes[]>([]);
@@ -45,7 +43,7 @@ const MealsByCategory = () => {
 
   return (
     <Container>
-      <div className="bg-background h-[130vh]">
+      <div className="bg-background h-auto">
         <div className="text-center mx-auto">
           <h1 className="text-primary font-bold italic text-4xl">
             Meal by Category
@@ -100,14 +98,6 @@ const MealsByCategory = () => {
             </TabPanel>
           ))}
         </Tabs>
-      </div>
-      {/* View Buttons */}
-      <div className="flex justify-center pt-20">
-        <Link href="/meals">
-          <Button className="bg-primary text-default-white font-bold hover:bg-background hover:border-2 hover:border-primary hover:text-primary">
-            View More
-          </Button>
-        </Link>
       </div>
     </Container>
   );

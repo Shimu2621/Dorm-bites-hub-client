@@ -36,13 +36,13 @@ const Navbar = () => {
         </div>
         <ul className="hidden md:flex items-center gap-6 font-bold text-gray-color">
           <li>
-            <Link href="/home">Home</Link>
+            <Link href="/">Home</Link>
           </li>
           <li>
             <Link href="/meals">Meals</Link>
           </li>
           <li className="w-[127px]">
-            <Link href="/upComing-Meals">Upcoming Meals</Link>
+            <Link href="/upcomingMeals">Upcoming Meals</Link>
           </li>
           <li>
             <a href="/about">About</a>

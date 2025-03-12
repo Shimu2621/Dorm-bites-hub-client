@@ -48,7 +48,7 @@ const MealsCard = ({ meal }: { meal: IMealTypes }) => {
             alt={meal?.mealType}
             width={500}
             height={400}
-            className=" w-[300px] h-[250px] border border-gray-300 rounded-sm object-cover transition-transform duration-300 group-hover:scale-120"
+            className=" w-[300px] h-[250px]  rounded-sm object-cover transition-transform duration-300 group-hover:scale-120"
             unoptimized={true}
           />
           <Button className="bg-amber-600 absolute top-0 hover:border-amber-600 hover:text-black">
@@ -69,7 +69,7 @@ const MealsCard = ({ meal }: { meal: IMealTypes }) => {
           />
         </CardDescription>
       </CardHeader>
-      <CardFooter className="flex justify-between border-b border-gray-300 px-3 pb-6">
+      <CardFooter className="flex justify-between  px-3  border-b border-gray-300 pb-6">
         <Link href={`/meals/${meal._id}`}>
           <Button className="bg-primary px-2 text-default-white font-bold hover:bg-background hover:border-2 hover:border-primary hover:text-primary">
             View details

@@ -5,7 +5,7 @@ import RightChooseSec from "./RightChooseSec";
 
 const Choose = () => {
   return (
-    <div className="bg-background py-20">
+    <div className="bg-background py-20 pt-32">
       <div className="text-center mx-auto ">
         <h1 className="text-blue-500 font-bold italic text-4xl">
           Why Choose Us

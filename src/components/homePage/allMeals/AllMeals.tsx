@@ -25,7 +25,7 @@ import {
 
 const AllMeals = ({ meals }: { meals: IMealTypes[] }) => {
   return (
-    <div className="bg-background">
+    <div className="bg-background mb-20">
       {/* Banner Section */}
       <div className="relative mb-10">
         <Image
