@@ -1,3 +1,5 @@
+"use client";
+
 import { IMealTypes } from "@/types";
 import Container from "@/utils/container/Container";
 import MealsCard from "../mealsByCategory/MealsCard";
@@ -22,14 +24,105 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { useEffect, useState } from "react";
 
-const AllMeals = ({ meals }: { meals: IMealTypes[] }) => {
+const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
+  const [meals, setMeals] = useState<IMealTypes[]>(initialMeals || []);
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
+  const [sort, setSort] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const mealsPerPage = 8; // Adjust based on your preference
+
+  // Fetch meals from API based on filters
+  const fetchMeals = async () => {
+    setLoading(true);
+    try {
+      let apiUrl = "https://dorm-dine-hub-server.vercel.app/meals";
+
+      // Build query parameters based on filter selections
+      const queryParams = [];
+
+      if (search) {
+        queryParams.push(`search=${search}`);
+      }
+
+      if (category) {
+        queryParams.push(`category=${category}`);
+      }
+
+      if (sort) {
+        // Map UI sort values to API parameters
+        let sortParam;
+        switch (sort) {
+          case "ascending":
+            sortParam = "asc";
+            break;
+          case "descending":
+            sortParam = "desc";
+            break;
+          case "less than $10":
+            sortParam = "lt10";
+            break;
+          case "greater than $10":
+            sortParam = "gt10";
+            break;
+          default:
+            sortParam = sort;
+        }
+        queryParams.push(`sort=${sortParam}`);
+      }
+
+      // Add query parameters to URL if any exist
+      if (queryParams.length > 0) {
+        apiUrl += `?${queryParams.join("&")}`;
+      }
+
+      console.log("Fetching from:", apiUrl);
+
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error("Failed to fetch meals");
+      }
+
+      const data = await response.json();
+      setMeals(data);
+      setCurrentPage(1); // Reset to first page when filters change
+    } catch (error) {
+      console.error("Error fetching meals:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Handle search button click
+  const handleSearch = () => {
+    fetchMeals();
+  };
+
+  // Fetch meals when category or sort changes
+  useEffect(() => {
+    if (category || sort) {
+      fetchMeals();
+    }
+  }, [search, category, sort]);
+
+  // Calculate pagination
+  const indexOfLastMeal = currentPage * mealsPerPage;
+  const indexOfFirstMeal = indexOfLastMeal - mealsPerPage;
+  const currentMeals = meals.slice(indexOfFirstMeal, indexOfLastMeal);
+  const totalPages = Math.ceil(meals.length / mealsPerPage);
+
+  // Change page
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
   return (
     <div className="bg-background mb-20">
       {/* Banner Section */}
       <div className="relative mb-10">
         <Image
-          src="/public/meals/banner.png"
+          src="/meals/banner.png"
           width={600}
           height={218}
           className="w-full h-[40vh] md:h-[50vh] object-cover rounded-none shadow-lg"
@@ -53,16 +146,18 @@ const AllMeals = ({ meals }: { meals: IMealTypes[] }) => {
       <Container>
         {/* Search & Filter Section */}
         <div className="flex flex-col md:flex-row items-center bg-gray-800 p-7 max-w-4xl mx-auto rounded-sm join shadow-md mb-2">
-          <div className="flex w-full  mx-auto gap-0">
+          <div className="flex w-full mx-auto gap-0">
             {/* Search Input */}
             <Input
               placeholder="Search meals..."
               type="text"
-              className=" bg-input border border-gray-color focus:ring-2 p-5 focus:ring-primary rounded-l-sm rounded-r-none"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="bg-input border border-gray-color focus:ring-2 p-5 focus:ring-primary rounded-l-sm rounded-r-none"
             />
 
             {/* Category Dropdown */}
-            <Select>
+            <Select value={category} onValueChange={setCategory}>
               <SelectTrigger className="w-[50%] p-5 bg-input border border-gray-color rounded-none cursor-pointer">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
@@ -77,7 +172,7 @@ const AllMeals = ({ meals }: { meals: IMealTypes[] }) => {
             </Select>
 
             {/* Price Range Dropdown */}
-            <Select>
+            <Select value={sort} onValueChange={setSort}>
               <SelectTrigger className="w-[50%] p-5 bg-input border border-gray-color rounded-none cursor-pointer">
                 <SelectValue placeholder="Filter in Price" />
               </SelectTrigger>
@@ -95,44 +190,91 @@ const AllMeals = ({ meals }: { meals: IMealTypes[] }) => {
             </Select>
 
             {/* Search Button */}
-            <button className="btn bg-primary text-white px-4 rounded-r-md cursor-pointer hover:bg-blue-800">
+            <button
+              onClick={handleSearch}
+              className="btn bg-primary text-white px-4 rounded-r-md cursor-pointer hover:bg-blue-800"
+            >
               Search
             </button>
           </div>
         </div>
 
-        {/* Meals Grid */}
-        <div className="grid grid-cols-4 gap-4 pt-20">
-          {meals?.map((meal: IMealTypes, index: number) => (
-            <MealsCard key={index} meal={meal} />
-          ))}
-        </div>
-      </Container>
+        {/* Loading State */}
+        {loading ? (
+          <div className="flex justify-center items-center h-40">
+            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
+          </div>
+        ) : (
+          <>
+            {/* Meals Grid */}
+            {currentMeals.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-10">
+                {currentMeals.map((meal: IMealTypes, index: number) => (
+                  <MealsCard key={meal._id || index} meal={meal} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-10">
+                <h3 className="text-xl font-semibold">No meals found</h3>
+                <p>Try adjusting your search or filters</p>
+              </div>
+            )}
+          </>
+        )}
 
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#" isActive>
-              2
-            </PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">3</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+        {/* Pagination - only show if we have meals */}
+        {meals.length > 0 && !loading && (
+          <div className="mt-10">
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    onClick={() => currentPage > 1 && paginate(currentPage - 1)}
+                    className={
+                      currentPage === 1
+                        ? "pointer-events-none opacity-50"
+                        : "cursor-pointer"
+                    }
+                  />
+                </PaginationItem>
+
+                {[...Array(totalPages)]
+                  .map((_, i) => (
+                    <PaginationItem key={i}>
+                      <PaginationLink
+                        onClick={() => paginate(i + 1)}
+                        isActive={currentPage === i + 1}
+                        className="cursor-pointer"
+                      >
+                        {i + 1}
+                      </PaginationLink>
+                    </PaginationItem>
+                  ))
+                  .slice(0, 3)}
+
+                {totalPages > 3 && (
+                  <PaginationItem>
+                    <PaginationEllipsis />
+                  </PaginationItem>
+                )}
+
+                <PaginationItem>
+                  <PaginationNext
+                    onClick={() =>
+                      currentPage < totalPages && paginate(currentPage + 1)
+                    }
+                    className={
+                      currentPage === totalPages
+                        ? "pointer-events-none opacity-50"
+                        : "cursor-pointer"
+                    }
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+        )}
+      </Container>
     </div>
   );
 };

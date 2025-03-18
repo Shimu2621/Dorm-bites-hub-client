@@ -3,19 +3,23 @@ import UpcomingMealsCard from "./UpcomingMealsCard";
 import Container from "@/utils/container/Container";
 
 interface Meal {
+  _id: string;
   mealImage: string;
   mealTitle: string;
   mealType: string;
   price: number;
   rating: number;
   reviews: number;
+  likes: number;
+  liked: string[];
 }
 
 interface UpcomingMealsProps {
   data: Meal[];
+  userEmail: string;
 }
 
-const UpcomingMeals: React.FC<UpcomingMealsProps> = ({ data }) => {
+const UpcomingMeals: React.FC<UpcomingMealsProps> = ({ data, userEmail }) => {
   if (!data || data.length === 0) {
     return <p>No upcoming meals available.</p>;
   }
@@ -36,7 +40,7 @@ const UpcomingMeals: React.FC<UpcomingMealsProps> = ({ data }) => {
         </div>
         <div className="grid grid-cols-4 gap-4 pt-20 pb-20">
           {data.map((meal, index) => (
-            <UpcomingMealsCard key={index} meal={meal} />
+            <UpcomingMealsCard key={index} meal={meal} userEmail={userEmail} />
           ))}
         </div>
       </div>

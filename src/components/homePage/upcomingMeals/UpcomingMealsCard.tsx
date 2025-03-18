@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,23 +9,77 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { ThumbsUp, ThumbsDown, CheckCircle } from "lucide-react"; // Icons for Like/Unlike
 import { Rating } from "@smastrom/react-rating";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { useState } from "react";
+import axios from "axios";
 
 interface Meal {
+  _id: string;
   mealImage: string;
   mealTitle: string;
   mealType: string;
   price: number;
   rating: number;
   reviews: number;
+  likes: number; // This field for tracking likes
+  liked: string[]; // Array of users who liked the meal
 }
 
 interface MealCardProps {
   meal: Meal;
+  userEmail: string; // Pass the logged-in user's email
 }
 
-const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal }) => {
+const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal, userEmail }) => {
+  const [likes, setLikes] = useState(meal.likes || 0);
+  const [liked, setLiked] = useState(meal.liked.includes(userEmail));
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // Handle Like/Unlike action
+  const handleLike = async () => {
+    setLoading(true);
+
+    try {
+      const response = await axios.patch(
+        `https://dorm-dine-hub-server.vercel.app/upcoming-meals/${meal._id}`,
+        { userEmail }
+      );
+      console.log("Response Data:", response.data);
+
+      if (response.status === 200) {
+        const updatedMeal = response.data;
+        setLikes(updatedMeal.likes);
+        setLiked(updatedMeal.liked.includes(userEmail));
+
+        // Set success message dynamically
+        setModalMessage(
+          updatedMeal.liked.includes(userEmail)
+            ? "You have liked this meal."
+            : "You have unliked this meal!"
+        );
+        setShowModal(true);
+        console.log("Modal Opened:", showModal);
+      }
+    } catch (error) {
+      console.error("Error updating like:", error);
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <Card className="border-none shadow-none">
       <CardContent>
@@ -56,18 +112,47 @@ const UpcomingMealsCard: React.FC<MealCardProps> = ({ meal }) => {
       </CardHeader>
       <CardContent>
         <div className="flex justify-between items-center mb-2">
-          <p className="text-lg font-semibold text-yellow-600">${meal.price}</p>
-          <div className="flex items-center gap-1">
-            <Star className="w-4 h-4 text-yellow-500" />
-            <span className="text-sm font-medium">
-              {meal.rating} ({meal.reviews} reviews)
-            </span>
+          <Button className="bg-primary px-3 text-default-white font-bold hover:bg-background hover:border-2 hover:border-primary hover:text-primary">
+            ${meal.price}
+          </Button>
+          <div className="flex items-center gap-2">
+            {/* Like Button */}
+            <Button
+              onClick={handleLike}
+              className={`flex items-center gap-2 ${
+                liked
+                  ? "bg-red-500 hover:bg-red-600"
+                  : "bg-pink-500 hover:bg-pink-600"
+              } text-white px-4 py-2 rounded`}
+            >
+              {liked ? <ThumbsDown size={18} /> : <ThumbsUp size={18} />}
+              <span>{likes}</span>
+            </Button>
           </div>
         </div>
-        <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">
-          Order Now
-        </Button>
       </CardContent>
+
+      {/* Unlike Confirmation Modal */}
+      <Dialog open={showModal} onOpenChange={(open) => setShowModal(open)}>
+        <DialogContent>
+          <DialogHeader className="flex items-center gap-2">
+            <CheckCircle className="text-green-500" size={30} />
+            <DialogTitle>{modalMessage}</DialogTitle>
+          </DialogHeader>
+          <p>Are you sure you want to unlike this meal?</p>
+          <DialogFooter>
+            {/* <Button onClick={() => setShowModal(false)} className="bg-gray-400">
+              Cancel
+            </Button>
+            <Button onClick={confirmUnlike} className="bg-red-500">
+              Unlike
+            </Button> */}
+            <Button onClick={() => setShowModal(false)} className="bg-primary">
+              OK
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </Card>
   );
 };

@@ -1,4 +1,3 @@
-// import MealsByCategory from "@/components/homePage/mealsByCatagory/MealsByCategory";
 import AllMeals from "@/components/homePage/allMeals/AllMeals";
 import React from "react";
 
@@ -13,7 +12,7 @@ const MealsPage = async () => {
 
   return (
     <div>
-      <AllMeals meals={data} />
+      <AllMeals initialMeals={data} />
     </div>
   );
 };

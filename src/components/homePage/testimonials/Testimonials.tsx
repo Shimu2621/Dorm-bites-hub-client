@@ -17,7 +17,7 @@ const Testimonials: React.FC = () => {
           <h1 className="text-4xl font-bold italic text-primary">
             Testimonials
           </h1>
-          <p className="text-gray-color">
+          <p className="text-gray-color mb-20">
             Discover what our valued clients have to say about us. Their
             testimonials showcase the impact of
             <br /> our work and our commitment to excellence.

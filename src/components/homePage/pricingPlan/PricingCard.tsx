@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface PricingCardProps {
@@ -22,6 +25,12 @@ const PricingCard: React.FC<PricingCardProps> = ({
   description,
   benefits,
 }) => {
+  const router = useRouter(); //For Next.js project we can't use useNavigate() hook so I used useRouter() hook
+
+  const handleBuyNow = () => {
+    router.push(`/checkout?plan=${plan}&price=${price}`);
+  };
+
   return (
     <Card className="p-6 border-none rounded-sm shadow-lg text-center transition-transform duration-300 hover:scale-110">
       <CardHeader>
@@ -44,8 +53,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
         </ul>
       </CardContent>
       <CardFooter className="pt-10">
-        <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white hover">
-          Order Now
+        <Button
+          onClick={handleBuyNow}
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white hover"
+        >
+          Buy Now
         </Button>
       </CardFooter>
     </Card>
