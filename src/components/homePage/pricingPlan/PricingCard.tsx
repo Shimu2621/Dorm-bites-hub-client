@@ -9,12 +9,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
 interface PricingCardProps {
   plan: string;
   price: number;
+  badge_image: string;
   description: string;
   benefits: string[];
 }
@@ -22,6 +24,7 @@ interface PricingCardProps {
 const PricingCard: React.FC<PricingCardProps> = ({
   plan,
   price,
+  badge_image,
   description,
   benefits,
 }) => {
@@ -41,6 +44,13 @@ const PricingCard: React.FC<PricingCardProps> = ({
         </p>
       </CardHeader>
       <CardContent>
+        <Image
+          src={badge_image}
+          alt="Badge-img"
+          width={128}
+          height={128}
+          className="rounded-full w-20 h-20 object-contain mx-auto"
+        />
         <p className="text-gray-700 mb-4">{description}</p>
         <ul className="text-center space-y-3">
           {benefits.map((benefit, index) => (

@@ -120,32 +120,38 @@ const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
   return (
     <div className="bg-background mb-20">
       {/* Banner Section */}
-      <div className="relative mb-10">
+      <div className="relative w-full h-[30vh] md:h-[40vh] ">
         <Image
-          src="/meals/banner.png"
-          width={600}
-          height={218}
-          className="w-full h-[40vh] md:h-[50vh] object-cover rounded-none shadow-lg"
+          src="https://media.istockphoto.com/id/666908954/photo/handsome-chef-pouring-olive-oil-on-meal.jpg?s=612x612&w=0&k=20&c=2dU_sMyn3GM2N81m-tMWQ4y5frBp87GQCflUtauJM4k="
           alt="Banner Image"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          priority
+          className="w-full h-full"
         />
+
         {/* opacity for shade */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-40 text-white">
+        <div className="absolute inset-0 bg-black/70">
           {/* text */}
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Explore Delicious Meals!
-          </h2>
-          <p className="md:text-xl text-lg text-center font-semibold px-4">
-            Discover a variety of mouth-watering meals with fresh ingredients
-            and rich flavors. Whether you&apos;re craving <br /> a hearty
-            breakfast, a nutritious lunch, or a delightful dinner, explore our
-            collection of meals!
-          </p>
+          <div className="relative mt-20 text-white flex flex-col items-center justify-center">
+            <h2 className="text-4xl md:text-7xl font-bold mb-4">
+              {" "}
+              Explore Delicious Meals!
+            </h2>
+            <p className="md:text-2xl text-lg text-center font-bold px-4">
+              Discover a variety of mouth-watering meals with fresh ingredients
+              and rich flavors. Whether you&apos;re craving <br /> a hearty
+              breakfast, a nutritious lunch, or a delightful dinner, explore our
+              collection of meals!
+            </p>
+          </div>
         </div>
       </div>
 
       <Container>
         {/* Search & Filter Section */}
-        <div className="flex flex-col md:flex-row items-center bg-gray-800 p-7 max-w-4xl mx-auto rounded-sm join shadow-md mb-2">
+        <div className="flex flex-col md:flex-row items-center bg-gray-800 p-7 max-w-4xl mx-auto rounded-sm join shadow-md mb-2 mt-20">
           <div className="flex w-full mx-auto gap-0">
             {/* Search Input */}
             <Input
