@@ -88,15 +88,17 @@ const Navbar = () => {
             <DropdownMenu>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="w-14 h-14 relative">
-                    <Image
-                      src={user.photoURL || "/default-avatar.png"}
-                      alt="User Profile"
-                      width={56}
-                      height={56}
-                      className="w-full h-full rounded-full object-cover cursor-pointer"
-                    />
-                  </div>
+                  <DropdownMenuTrigger asChild>
+                    <div className="w-14 h-14 relative">
+                      <Image
+                        src={user.photoURL || "/default-avatar.png"}
+                        alt="User Profile"
+                        width={56}
+                        height={56}
+                        className="w-full h-full rounded-full object-cover cursor-pointer"
+                      />
+                    </div>
+                  </DropdownMenuTrigger>
                 </TooltipTrigger>
                 <TooltipContent className="p-3 bg-white border shadow-md rounded-lg">
                   <p className="text-sm text-black font-semibold">
@@ -105,15 +107,12 @@ const Navbar = () => {
                 </TooltipContent>
               </Tooltip>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem
-                  className="cursor-pointer hover:bg-gray-200 p-2"
-                  onClick={handleLogout}
-                >
+                <DropdownMenuItem className="cursor-pointer hover:bg-gray-200 p-2">
                   {user?.displayName}
                 </DropdownMenuItem>
-                <Link href="/admin">
+                <Link href="/dashboard">
                   <DropdownMenuItem className="cursor-pointer hover:bg-gray-200 p-2">
-                    Admin Panel
+                    Dashboard
                   </DropdownMenuItem>
                 </Link>
                 <DropdownMenuItem

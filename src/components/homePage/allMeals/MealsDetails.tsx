@@ -11,15 +11,15 @@ import {
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import useAuth from "@/hooks/useAuth";
-import Container from "@/utils/container/Container";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import axios from "axios";
-import { AlertCircle, ThumbsDown, ThumbsUp } from "lucide-react";
+import { AlertCircle, ThumbsDown, ThumbsUp, User } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ReviewModal from "./ReviewModal";
+import { Card } from "@/components/ui/card";
 
 interface Meal {
   _id: string;
@@ -37,6 +37,18 @@ interface Meal {
   liked: string[];
 }
 
+interface Review {
+  _id: string;
+  food_id: string;
+  mealTitle: string;
+  email: string;
+  name: string;
+  image?: string;
+  user_rating: number;
+  comment: string;
+  createdAt?: string;
+}
+
 interface MealCardProps {
   meal: Meal;
 }
@@ -49,6 +61,33 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
   const [showRequestModal, setShowRequestModal] = useState(false);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [requestNote, setRequestNote] = useState("");
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [reviewsLoading, setReviewsLoading] = useState(false);
+
+  // Fetch reviews on component mount and when meal ID changes
+  useEffect(() => {
+    if (mealData._id) {
+      // Fetch reviews for this meal
+      const fetchReviews = async () => {
+        setReviewsLoading(true);
+        try {
+          const response = await axios.get(
+            `https://dorm-dine-hub-server.vercel.app/reviews?id=${mealData._id}`
+          );
+          if (response.data && response.data.data) {
+            setReviews(response.data.data);
+          }
+        } catch (error) {
+          console.error("Error fetching reviews:", error);
+          toast.error("Failed to load reviews");
+        } finally {
+          setReviewsLoading(false);
+        }
+      };
+
+      fetchReviews();
+    }
+  }, [mealData._id]);
 
   // Check if current user has already liked this meal
   const hasUserLiked = user?.email && mealData.liked.includes(user.email);
@@ -226,21 +265,21 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
 
   return (
     <div className="p-20">
-      <Container>
+      <div className="max-w-5xl mx-auto px-4">
         <div className="mb-8">
           <h1 className="text-primary text-4xl italic font-bold">
             Meal Details
           </h1>
         </div>
-        <div className="flex justify-between gap-10">
+        <div className="flex justify-between ">
           <div>
             <div className="relative group overflow-hidden rounded-sm">
               <Image
                 src={meal.mealImage}
                 alt={meal.mealTitle}
                 width={560}
-                height={560}
-                className="w-130 h-130 p-2 bg-white border-8 border-gray-500 object-cover rounded-sm shadow-2xs"
+                height={400}
+                className="w-110 h-110 p-2 bg-white border-8 border-gray-500 object-cover rounded-sm shadow-2xs"
                 unoptimized={true}
               />
               <Button className="bg-pink-700 rounded-sm absolute top-4 left-4">
@@ -309,30 +348,25 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
               </h1>
               <p className="text-gray-600">{meal.description}</p>
             </div>
-            <div className="mt-4">
-              <h1 className="text-xl text-yellow-600 italic font-bold ">
+            <div className="mt-6 ">
+              <h1 className="text-xl mb-2 text-yellow-600 italic font-bold ">
                 Ingredients:
               </h1>
-              <ul className="pl-5  text-gray-600">
+              <ul className="pl-5  text-gray-600 flex flex-wrap gap-x-4 gap-y-2">
                 {meal.ingredients.map((ingredient, index) => (
-                  <li key={index} className="list-disc">
+                  <li key={index} className="list-disc flex items-center">
+                    <span className="w-2 h-2 bg-gray-700 rounded-full mr-2"></span>
                     {ingredient}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="w-full mt-8 flex gap-4">
+            <div className="w-full mt-10 flex gap-4">
               <Button
                 className="flex-1 bg-yellow-600 hover:bg-yellow-700 text-white"
                 onClick={() => setShowRequestModal(true)}
               >
                 Make Meal Request
-              </Button>
-              <Button
-                className="flex-1 bg-pink-600 hover:bg-pink-700 text-white"
-                onClick={() => setShowReviewModal(true)}
-              >
-                Add Review
               </Button>
             </div>
           </div>
@@ -416,6 +450,103 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
           </DialogContent>
         </Dialog>
 
+        {/* Divider */}
+        <div className="relative flex items-center justify-center my-8">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-300"></div>
+          </div>
+          {/* <div className="relative z-10 bg-[#1a1e23] p-1 rounded-full">
+            <X className="w-5 h-5 text-gray-400" />
+          </div> */}
+        </div>
+
+        {/* Add a review section */}
+        <div className="mb-8">
+          <div className="relative flex justify-center mb-6">
+            <div className="absolute top-1/2 -translate-y-1/2 w-full h-6 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600"></div>
+            <div className="relative transform rotate-[-10deg] bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 py-6 px-10 text-center">
+              <h3 className="text-xl font-bold text-gray-900">
+                Add a review !!
+              </h3>
+            </div>
+          </div>
+
+          <div className=" border-3 border-gray-500 w-80 h-30 mx-auto p-6 text-center mb-8">
+            <div className="border-3 border-gray-500 w-80 h-30 mx-auto p-6 text-center">
+              <Button
+                onClick={() => setShowReviewModal(true)}
+                className="text-2xl bg-white border-none shadow-none text-amber-600 mt-1 font-bold hover:bg-white hover:border-none hover:shadow-none"
+              >
+                Add a review
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Reviews Section */}
+        <div className="mt-15 flex flex-col items-center">
+          <h3 className="text-2xl text-amber-600 font-bold mb-2">
+            Customer Reviews
+          </h3>
+
+          {reviewsLoading ? (
+            <div className="text-center py-8">Loading reviews...</div>
+          ) : reviews.length > 0 ? (
+            <div className="space-y-4">
+              {reviews.map((review) => (
+                <Card
+                  key={review._id}
+                  className="border-3 border-gray-500 w-86 h-30 mx-auto p-6 text-center justify-center rounded-none"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden flex-shrink-0 mt-4">
+                      {review.image ? (
+                        <Image
+                          src={review.image || "/placeholder.svg"}
+                          alt={review.name}
+                          width={46}
+                          height={46}
+                          className="w-full h-full object-cover"
+                          unoptimized={true}
+                        />
+                      ) : (
+                        <User className="w-6 h-6 text-gray-500" />
+                      )}
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex justify-center items-center flex-col">
+                        <h4 className="font-bold text-gray-800">
+                          {review.name}
+                        </h4>
+                        <p className=" text-gray-700">{review.comment}</p>
+
+                        <Rating
+                          value={review.user_rating}
+                          readOnly
+                          style={{ maxWidth: 100 }}
+                        />
+                      </div>
+                      {review.createdAt && (
+                        <span className="text-sm text-gray-500">
+                          {review.createdAt
+                            ? new Date(review.createdAt).toLocaleDateString()
+                            : "Unknown date"}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8 border border-dashed border-gray-300 rounded-lg">
+              <p className="text-gray-500">
+                No reviews yet. Be the first to review this meal!
+              </p>
+            </div>
+          )}
+        </div>
+
         {/* Review Modal - Now using the separated component */}
         <ReviewModal
           open={showReviewModal}
@@ -424,7 +555,7 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
           onSubmit={handleReviewSubmit}
           loading={loading}
         />
-      </Container>
+      </div>
     </div>
   );
 };

@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 interface PricingCardProps {
-  plan: string;
+  badge_name: string;
   price: number;
   badge_image: string;
   description: string;
@@ -22,7 +22,7 @@ interface PricingCardProps {
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({
-  plan,
+  badge_name,
   price,
   badge_image,
   description,
@@ -31,13 +31,15 @@ const PricingCard: React.FC<PricingCardProps> = ({
   const router = useRouter(); //For Next.js project we can't use useNavigate() hook so I used useRouter() hook
 
   const handleBuyNow = () => {
-    router.push(`/checkout?plan=${plan}&price=${price}`);
+    router.push(`/checkout?plan=${name}&price=${price}`);
   };
 
   return (
     <Card className="p-6 border-none rounded-sm shadow-lg text-center transition-transform duration-300 hover:scale-110">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold">{plan} Plan</CardTitle>
+        <CardTitle className="text-2xl text-primary italic font-bold">
+          {badge_name}{" "}
+        </CardTitle>
         <p className="text-lg flex flex-col text-gray-color">
           <span className="font-bold text-5xl text-gray-700">${price}</span> /
           month
@@ -55,7 +57,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         <ul className="text-center space-y-3">
           {benefits.map((benefit, index) => (
             <li key={index} className="flex items-center gap-2">
-              <Check className="w-5 h-5 rounded-sm bg-blue-500 text-white" />{" "}
+              <Check className="w-4 h-4  rounded-full bg-blue-500 text-white" />{" "}
               {/* ✅ Blue check icon */}
               {benefit}
             </li>

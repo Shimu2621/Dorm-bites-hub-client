@@ -1,9 +1,9 @@
 const plans = [
   {
-    plan: "Basic",
+    name: "Silver",
     price: 100,
     badge_image:
-      "https://png.pngtree.com/png-clipart/20240418/original/pngtree-golden-star-badge-you-win-png-image_14885356.png",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRattoapBWAvkV7VLrrL2l9s_gDd8ALFkDumEDXjCc0eIv8XOPxZnb5QAzabcFBI7cYQSc&usqp=CAU",
     description:
       "A budget-friendly meal plan with essential nutrition and delicious flavors.",
     benefits: [
@@ -17,10 +17,10 @@ const plans = [
     ],
   },
   {
-    plan: "Standard",
+    name: "Gold",
     price: 200,
     badge_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1XhBOs0hWAgYUR0QNAB_mmelfEy4idJxCWBT59ZlMzjBpSnvjkUDLSPLJTEhxk7JGON0&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnLe0z2q5Ox_Foo3TfJKt2eLn7zifrqqowPV3PY2nfUK2MksDU7Gc5qccJJYfIvhnTt4&usqp=CAU",
     description:
       "A well-balanced meal plan with more variety and customization options.",
     benefits: [
@@ -34,10 +34,10 @@ const plans = [
     ],
   },
   {
-    plan: "Premium",
+    name: "Platinum",
     price: 300,
     badge_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRri5Meq8SFxsJSJTCsxaMBEdWte4oiLulzER1qVVAdoCAswT-MFRAfnu8aaI5gEsTX30g&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdNXlg0UstP2mFr9ArwyD3tAeZVYDF74QtJ-StKdj4wvMQNVPxzW61Aa9tMGj9AgwPw4&usqp=CAU",
     description:
       "A premium meal plan with gourmet dishes and full customization options.",
     benefits: [

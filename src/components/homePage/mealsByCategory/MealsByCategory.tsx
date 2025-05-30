@@ -67,8 +67,8 @@ const MealsByCategory = () => {
                 className={`px-4 py-2 border border-gray-400 rounded-sm  cursor-pointer flex flex-col items-center gap-2 hover:scale-105 transition-transform duration-100 
               ${
                 selectedTab === index
-                  ? "bg-blue-500 text-gray-color"
-                  : "text-gray-600 hover:bg-blue-100 hover:text-primary"
+                  ? "bg-blue-100 text-gray-color"
+                  : "text-gray-600 hover:bg-blue-100 "
               }`}
               >
                 <Image

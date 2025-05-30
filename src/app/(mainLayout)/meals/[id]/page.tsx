@@ -1,5 +1,5 @@
 import MealsDetails from "@/components/homePage/allMeals/MealsDetails";
-import axios from "axios";
+
 import React from "react";
 
 interface Params {
