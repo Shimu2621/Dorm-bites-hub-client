@@ -3,8 +3,6 @@
 import useAuth from "@/hooks/useAuth";
 import Image from "next/image";
 
-import Link from "next/link";
-
 const AdminProfile = () => {
   const { user } = useAuth();
   const email = user?.email || "Not Available"; // Define email from user object
@@ -16,70 +14,9 @@ const AdminProfile = () => {
   const badge = "Gold Member"; // Replace with actual badge name
 
   return (
-    <div className="flex h-screen w-full overflow-hidden">
-      {/* Sidebar */}
-      <div className="w-80 bg-blue-700 text-white flex flex-col">
-        <div className="p-4 font-bold text-gray-300 text-2xl">
-          DORM DINE HUB
-        </div>
-
-        <div className="flex flex-col mt-8">
-          <div className="bg-blue-800 text-gray-300 py-2 px-4 ">
-            <Link href="/dashboard/admin-profile">Admin Profile</Link>
-          </div>
-          <div className="py-2 px-4 hover:bg-blue-800 text-gray-300 cursor-pointer">
-            <Link href="/dashboard/manage-users" className="block w-full">
-              Manage Users
-            </Link>
-          </div>
-          <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/dashboard/add-meals" className="block w-full">
-              Add Meals
-            </Link>
-          </div>
-          <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/dashboard/all-meals" className="block w-full">
-              All Meals
-            </Link>
-          </div>
-          <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/dashboard/all-reviews" className="block w-full">
-              All Reviews
-            </Link>
-          </div>
-          <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/dashboard/serve-meal" className="block w-full">
-              Serve Meal
-            </Link>
-          </div>
-          <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/dashboard/up-coming-meals" className="block w-full">
-              Up Coming Meals
-            </Link>
-          </div>
-        </div>
-
-        <div className="border-t border-blue-100 mt-8 pt-4">
-          <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/" className="block w-full">
-              Home
-            </Link>
-          </div>
-          <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/meals" className="block w-full">
-              Meals
-            </Link>
-          </div>
-          <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/up-coming-meals" className="block w-full">
-              Up Coming Meals
-            </Link>
-          </div>
-        </div>
-      </div>
-
+    <div>
       {/* Main Content */}
-      <div className="flex-1 bg-blue-300 text-white flex flex-col items-center overflow-y-auto p-6">
+      <div className="text-white flex flex-col items-center">
         {/* Admin Profile Title */}
         <h1 className="text-5xl italic text-blue-700 font-bold mt-6 mb-8">
           Admin profile

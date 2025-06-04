@@ -73,7 +73,7 @@ const ManageUsers: React.FC = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 w-full">
       <h1 className="text-3xl text-center font-bold mb-4">Manage Users</h1>
       <p className="text-lg italic font-bold text-center my-2">
         Please for email search atleast put (@)

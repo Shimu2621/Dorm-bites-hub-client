@@ -111,7 +111,7 @@ export default function AddMeal() {
   };
 
   return (
-    <div className="min-h-screen bg-blue-100  py-12 px-12">
+    <div className="min-h-screen w-full  py-12 px-12">
       <div>
         <h1 className="text-3xl text-center font-bold mb-10">
           Add A New Meal Or Upcoming Meal
@@ -129,7 +129,7 @@ export default function AddMeal() {
             onChange={handleChange}
             type="text"
             placeholder="Meal Title"
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           />
           {errors.mealTitle && (
             <p className="text-red-500 font-semibold mb-2">
@@ -144,7 +144,7 @@ export default function AddMeal() {
             onChange={handleChange}
             type="number"
             placeholder="Price"
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           />
           {errors.price && (
             <p className="text-red-500 font-semibold mb-2">{errors.price}</p>
@@ -157,7 +157,7 @@ export default function AddMeal() {
             name="date"
             onChange={handleChange}
             type="date"
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md  text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           />
           {errors.date && (
             <p className="text-red-500 font-semibold mb-2">{errors.date}</p>
@@ -170,7 +170,7 @@ export default function AddMeal() {
             onChange={handleChange}
             type="text"
             placeholder="Description"
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           />
           {errors.description && (
             <p className="text-red-500 font-semibold mb-2">
@@ -187,7 +187,7 @@ export default function AddMeal() {
             type="number"
             step="0.1"
             placeholder="Rating"
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           />
           {errors.rating && (
             <p className="text-red-500 font-semibold mb-2">{errors.rating}</p>
@@ -200,7 +200,7 @@ export default function AddMeal() {
             type="email"
             value={meal.email}
             disabled
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           />
           {errors.email && (
             <p className="text-red-500 font-semibold mb-2">{errors.email}</p>
@@ -214,7 +214,7 @@ export default function AddMeal() {
             onChange={handleChange}
             type="number"
             placeholder="Likes"
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           />
           {errors.likes && (
             <p className="text-red-500 font-semibold mb-2">{errors.likes}</p>
@@ -227,7 +227,7 @@ export default function AddMeal() {
             onChange={handleChange}
             type="number"
             placeholder="Reviews"
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           />
           {errors.reviews && (
             <p className="text-red-500 font-semibold mb-2">{errors.reviews}</p>
@@ -243,7 +243,7 @@ export default function AddMeal() {
             onChange={handleChange}
             type="text"
             placeholder="please put comma after each ingredient.."
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           />
           {errors.ingredients && (
             <p className="text-red-500 font-semibold mb-2">
@@ -256,7 +256,7 @@ export default function AddMeal() {
           <select
             name="category"
             onChange={handleChange}
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           >
             <option value="">Category</option>
             <option value="breakfast">Breakfast</option>
@@ -275,7 +275,7 @@ export default function AddMeal() {
             type="text"
             value={meal.adminName}
             disabled
-            className="w-full p-3 rounded-md bg-indigo-100 text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
+            className="w-full p-3 rounded-md text-gray-800 border border-gray-300 focus:ring-2 focus:ring-gray-400"
           />
           {errors.adminName && (
             <p className="text-red-500 font-semibold mb-2">

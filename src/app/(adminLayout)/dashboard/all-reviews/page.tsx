@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { IReview } from "@/types";
-import Image from "next/image";
 
 interface ReviewTableProps {
   initialData: IReview[];
@@ -28,7 +27,7 @@ const ReviewTable: React.FC<ReviewTableProps> = ({ initialData, count }) => {
   }, [page, sortBy]);
 
   return (
-    <div className="p-6">
+    <div className="p-6 w-full">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-xl font-semibold">All Reviews</h1>
         <select
@@ -44,7 +43,7 @@ const ReviewTable: React.FC<ReviewTableProps> = ({ initialData, count }) => {
         <table className="table-auto w-full text-sm border border-gray-200">
           <thead className="bg-gray-100">
             <tr>
-              <th className="p-2 border">Image</th>
+              <th className="p-2 border">No.</th>
               <th className="p-2 border">Meal Title</th>
               <th className="p-2 border">Name</th>
               <th className="p-2 border">Email</th>
@@ -55,17 +54,9 @@ const ReviewTable: React.FC<ReviewTableProps> = ({ initialData, count }) => {
             </tr>
           </thead>
           <tbody>
-            {reviews?.map((review) => (
+            {reviews?.map((review, index) => (
               <tr key={review._id} className="text-center">
-                <td className="p-2 border">
-                  <Image
-                    src={review.image}
-                    alt={review.mealTitle}
-                    width={50}
-                    height={50}
-                    className="rounded-full object-cover"
-                  />
-                </td>
+                <td className="p-3 border text-center">{index + 1}</td>
                 <td className="p-2 border">{review.mealTitle}</td>
                 <td className="p-2 border">{review.name}</td>
                 <td className="p-2 border">{review.email}</td>

@@ -1,12 +1,10 @@
 import React from "react";
 import AdminProfile from "./admin-profile/page";
-import ManageUsers from "./manage-users/page";
 
 const DashboardPage = () => {
   return (
-    <div>
+    <div className="w-full">
       <AdminProfile />
-      <ManageUsers />
     </div>
   );
 };
