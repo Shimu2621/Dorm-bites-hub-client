@@ -25,7 +25,7 @@ const AdminProfile = () => {
 
         <div className="flex flex-col mt-8">
           <div className="bg-blue-800 text-gray-300 py-2 px-4 ">
-            <Link href="/admin-profile">Admin Profile</Link>
+            <Link href="/dashboard/admin-profile">Admin Profile</Link>
           </div>
           <div className="py-2 px-4 hover:bg-blue-800 text-gray-300 cursor-pointer">
             <Link href="/dashboard/manage-users" className="block w-full">
@@ -33,27 +33,27 @@ const AdminProfile = () => {
             </Link>
           </div>
           <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/add-meal" className="block w-full">
-              Add Meal
+            <Link href="/dashboard/add-meals" className="block w-full">
+              Add Meals
             </Link>
           </div>
           <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/all-meals" className="block w-full">
+            <Link href="/dashboard/all-meals" className="block w-full">
               All Meals
             </Link>
           </div>
           <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/all-reviews" className="block w-full">
+            <Link href="/dashboard/all-reviews" className="block w-full">
               All Reviews
             </Link>
           </div>
           <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/serve-meal" className="block w-full">
+            <Link href="/dashboard/serve-meal" className="block w-full">
               Serve Meal
             </Link>
           </div>
           <div className="py-2 px-4 text-gray-300 hover:bg-blue-800 cursor-pointer">
-            <Link href="/up-coming-meals" className="block w-full">
+            <Link href="/dashboard/up-coming-meals" className="block w-full">
               Up Coming Meals
             </Link>
           </div>

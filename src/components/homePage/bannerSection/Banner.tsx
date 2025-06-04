@@ -17,7 +17,7 @@ const images = [
   "https://img.freepik.com/premium-photo/beautiful-young-smiling-waitress-restaurant-with-plate-food-luxury-restaurant_652240-3966.jpg",
   "https://img.freepik.com/premium-photo/stack-food-black-plate-appetizing-meal-display-unveil-culinary-artistry-with-macro-food-photography-capturing-mouthwatering-details-inviting-appreciation-ai-generated_538213-45095.jpg",
   "https://img.freepik.com/premium-photo/buffet-catering_926199-2012562.jpg",
-  "https://chacepeople.com/storage/images/contents/blog/27/1667898337_o-resizer-1-.jpeg",
+  "https://img.freepik.com/premium-photo/skilled-chef-effortlessly-prepares-delicious-meal-plate-kitchen-ensuring-visually-appealing-presentation-gourmet-dish-being-prepared-highend-restaurant-kitchen-ai-generated_538213-23732.jpg",
 ];
 
 // Titles for Animation
