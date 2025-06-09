@@ -12,24 +12,27 @@ interface TestimonialProps {
     designation: string;
     image: string;
     feedback: string;
-    rating?: number; // Make rating optional if not in static data
+    rating?: number;
   };
 }
 
 const TestimonialCard: React.FC<TestimonialProps> = ({ testimonial }) => {
   return (
-    <Card className="px-4 py-10 rounded-sm border-none bg-white">
+    <Card className="px-4 py-10 rounded-sm border-none bg-white shadow-md h-full">
       <CardHeader className="mt-4 px-4">
-        <div className="flex items-start gap-6">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+          {/* Image */}
           <div>
             <Image
               src={testimonial?.image}
               alt="Testimonial Image"
               width={80}
               height={80}
-              className="w-18 h-18 rounded-full object-cover"
+              className="w-20 h-20 rounded-full object-cover mx-auto sm:mx-0"
             />
           </div>
+
+          {/* Details */}
           <div>
             <h2 className="text-primary font-bold italic text-lg">
               {testimonial?.name}
@@ -37,16 +40,17 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ testimonial }) => {
             <p className="text-gray-color">{testimonial?.designation}</p>
             <Rating
               style={{ maxWidth: 120 }}
-              value={testimonial.rating || 5} // Default rating to 5 if missing
+              value={testimonial.rating || 5}
               readOnly
               halfFillMode="svg"
             />
           </div>
         </div>
       </CardHeader>
-      {/* Feedback with blue quotation marks */}
-      <CardDescription className="relative text-gray-600 text-md mt-4 italic px-7">
-        <Quote className="text-blue-500 w-5 h-5 absolute right-48 -bottom-3 " />
+
+      {/* Feedback */}
+      <CardDescription className="relative text-gray-600 text-md mt-6 italic px-6 sm:px-10">
+        <Quote className="text-blue-500 w-5 h-5 absolute right-8 -bottom-3 hidden sm:block" />
         {testimonial?.feedback}
         <Quote className="text-blue-500 w-5 h-5 absolute left-0 -top-3 rotate-180" />
       </CardDescription>

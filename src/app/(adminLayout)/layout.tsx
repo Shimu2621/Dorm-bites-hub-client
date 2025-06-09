@@ -26,10 +26,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="flex min-h-screen w-full mx-auto">
         <AppSidebar />
         <div className="flex-1">
-          <header className="h-14 border-b px-4 flex items-center">
-            <SidebarTrigger className="md:hidden" />
-            <h1 className="ml-4 font-semibold">Admin Dashboard</h1>
+          <header className="h-14 border-b px-4 flex items-center justify-center relative">
+            <SidebarTrigger className="md:hidden absolute left-4" />
+            <h1 className="text-3xl text-blue-700 italic font-bold text-center">
+              Admin Dashboard
+            </h1>
           </header>
+
           <main className="p-4">{children}</main>
         </div>
       </div>

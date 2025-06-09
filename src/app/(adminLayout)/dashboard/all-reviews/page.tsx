@@ -28,12 +28,12 @@ const ReviewTable: React.FC<ReviewTableProps> = ({ initialData, count }) => {
 
   return (
     <div className="p-6 w-full">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-xl font-semibold">All Reviews</h1>
+      <div className="mb-4">
+        <h1 className="text-3xl text-center  font-bold">All Reviews</h1>
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value as "likes" | "reviews")}
-          className="border px-3 py-1 rounded"
+          className="border  px-3 py-1 rounded"
         >
           <option value="likes">Sort by Likes</option>
           <option value="reviews">Sort by Reviews</option>

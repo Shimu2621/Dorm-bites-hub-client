@@ -34,23 +34,31 @@ const Testimonials: React.FC = () => {
 
         {/* SwiperJS Integration */}
         <Swiper
-          spaceBetween={30} // Gap between slides
-          slidesPerView={3} // Show 3 cards at a time
+          spaceBetween={30}
           pagination={{ clickable: true }}
-          navigation // Enable arrows for navigation
+          navigation
           autoplay={{
-            delay: 3000, // 3-second delay between slides
-            disableOnInteraction: false, // Autoplay continues even after user interaction
+            delay: 3000,
+            disableOnInteraction: false,
           }}
-          loop={true} // Infinite loop for smooth transition
+          loop={true}
           modules={[Pagination, Navigation, Autoplay]}
           className="mt-10"
-          data-aos="zoom-in"
-          data-aos-delay="100"
+          breakpoints={{
+            0: {
+              slidesPerView: 1, // ✅ Small screens
+            },
+            768: {
+              slidesPerView: 2, // ✅ Medium screens (md)
+            },
+            1024: {
+              slidesPerView: 3, // ✅ Large screens (lg and up)
+            },
+          }}
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+              <TestimonialCard testimonial={testimonial} />
             </SwiperSlide>
           ))}
         </Swiper>
