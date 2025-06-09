@@ -65,7 +65,7 @@ const Banner = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
           {/* Left Section */}
-          <div className="mb-6" data-aos="fade-left" data-aos-delay="200">
+          <div className="mb-6" data-aos="fade-right" data-aos-delay="200">
             <h1 className="text-4xl md:text-5xl font-bold text-primary italic mb-6">
               {text}
             </h1>
@@ -89,7 +89,7 @@ const Banner = () => {
           {/* Right Section - Swiper Image Carousel */}
           <div
             className="w-full max-w-[800px]"
-            data-aos="fade-right"
+            data-aos="fade-left"
             data-aos-delay="400"
           >
             <Swiper

@@ -34,7 +34,7 @@ const items = [
   },
   {
     title: "Up Coming Meals",
-    url: "/dashboard/up-coming-meals",
+    url: "/dashboard/upcoming-meals",
     icon: UtensilsCrossed,
   },
 ];

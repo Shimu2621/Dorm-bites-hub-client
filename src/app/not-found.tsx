@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 const NotFoundPage = () => {
   return (
-    <div className="bg-orange-100 flex flex-col items-center justify-center  min-h-screen text-center px-4 p-20">
+    <div className=" flex flex-col items-center justify-center  min-h-screen text-center px-4 p-20">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-red-500 bg-clip-text text-transparent">
         Page Not Found
       </h2>
