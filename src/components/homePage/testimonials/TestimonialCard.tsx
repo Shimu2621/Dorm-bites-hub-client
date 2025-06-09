@@ -18,7 +18,7 @@ interface TestimonialProps {
 
 const TestimonialCard: React.FC<TestimonialProps> = ({ testimonial }) => {
   return (
-    <Card className="px-4 py-10 rounded-sm border-none shadow-lg">
+    <Card className="px-4 py-10 rounded-sm border-none bg-white">
       <CardHeader className="mt-4 px-4">
         <div className="flex items-start gap-6">
           <div>

@@ -35,7 +35,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   };
 
   return (
-    <Card className="p-6 border-none rounded-sm shadow-lg text-center transition-transform duration-300 hover:scale-110">
+    <Card className="p-5 bg-accent border border-accent rounded-sm  text-center transition-transform duration-300 hover:scale-110">
       <CardHeader>
         <CardTitle className="text-2xl text-primary italic font-bold">
           {badge_name}{" "}

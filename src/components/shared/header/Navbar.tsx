@@ -47,23 +47,23 @@ const Navbar = () => {
   };
 
   return (
-    <Card className="mx-auto bg-background py-3 px-3 border-0 flex items-center justify-between gap-10 rounded-none">
-      <Container className="flex items-center justify-center w-full">
+    <Card className="bg-background py-3 px-3 border-0 rounded-none shadow-sm">
+      <Container className="w-full flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Logo */}
-        <div className="flex justify-between items-center relative w-full">
+        <div className="flex items-center gap-2">
           <Image
             src="/logo/dormlogo.png"
             alt="Dorm Bites Hub Logo"
             width={50}
             height={50}
-            className="w-16 h-16 rounded-full object-cover"
+            className="w-14 h-14 rounded-full object-cover"
           />
-          <span className="absolute left-13 text-xl italic font-bold text-gray-color">
+          <span className="text-xl italic font-bold text-gray-color">
             ormBites Hub
           </span>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links (Desktop) */}
         <ul className="hidden md:flex items-center gap-6 font-bold text-gray-color">
           <li>
             <Link href="/">Home</Link>
@@ -71,7 +71,7 @@ const Navbar = () => {
           <li>
             <Link href="/meals">Meals</Link>
           </li>
-          <li className="w-[127px]">
+          <li>
             <Link href="/upcomingMeals">Upcoming Meals</Link>
           </li>
           <li>
@@ -82,19 +82,23 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Authentication Section */}
-        <div className="flex items-center pl-16 gap-8">
+        {/* Auth & Mobile Menu */}
+        <div className="flex items-center gap-3">
+          {/* Theme Toggle */}
+          <ModeToggle />
+
+          {/* If logged in */}
           {user && user.photoURL ? (
             <DropdownMenu>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <DropdownMenuTrigger asChild>
-                    <div className="w-14 h-14 relative">
+                    <div className="w-12 h-12 relative">
                       <Image
-                        src={user.photoURL || "/default-avatar.png"}
+                        src={user.photoURL}
                         alt="User Profile"
-                        width={56}
-                        height={56}
+                        width={48}
+                        height={48}
                         className="w-full h-full rounded-full object-cover cursor-pointer"
                       />
                     </div>
@@ -107,18 +111,11 @@ const Navbar = () => {
                 </TooltipContent>
               </Tooltip>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem className="cursor-pointer hover:bg-gray-200 p-2">
-                  {user?.displayName}
-                </DropdownMenuItem>
+                <DropdownMenuItem>{user.displayName}</DropdownMenuItem>
                 <Link href="/dashboard">
-                  <DropdownMenuItem className="cursor-pointer hover:bg-gray-200 p-2">
-                    Dashboard
-                  </DropdownMenuItem>
+                  <DropdownMenuItem>Dashboard</DropdownMenuItem>
                 </Link>
-                <DropdownMenuItem
-                  className="cursor-pointer hover:bg-gray-200 p-2"
-                  onClick={handleLogout}
-                >
+                <DropdownMenuItem onClick={handleLogout}>
                   Logout
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -131,30 +128,17 @@ const Navbar = () => {
             </Link>
           )}
 
-          {/* Mobile Navigation Menu */}
-          <div className="flex md:hidden mr-2 items-center gap-2">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <span className="py-2 px-2 bg-gray-100 rounded-md">Pages</span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
-                {landings.map((page) => (
-                  <DropdownMenuItem key={page.id}>
-                    <Link href={page.route}>{page.title}</Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
+          {/* Mobile Dropdown Menu */}
+          <div className="flex md:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" size="icon">
-                  <Menu className="h-5 w-5 rotate-0 scale-100" />
+                  <Menu className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>
-                  <Link href="/home">Home</Link>
+                  <Link href="/">Home</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link href="/meals">Meals</Link>
@@ -168,19 +152,18 @@ const Navbar = () => {
                 <DropdownMenuItem>
                   <Link href="/contact">Contact</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/login">
-                    <Button className="bg-blue-500 hover:bg-blue-600 text-white">
-                      Login
-                    </Button>
-                  </Link>
-                </DropdownMenuItem>
+                {!user && (
+                  <DropdownMenuItem asChild>
+                    <Link href="/login">
+                      <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full">
+                        Login
+                      </Button>
+                    </Link>
+                  </DropdownMenuItem>
+                )}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-
-          {/* Theme Toggle */}
-          <ModeToggle />
         </div>
       </Container>
     </Card>
