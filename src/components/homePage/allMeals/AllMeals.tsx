@@ -24,7 +24,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
   const [meals, setMeals] = useState<IMealTypes[]>(initialMeals || []);
@@ -35,14 +35,14 @@ const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const mealsPerPage = 8; // Adjust based on your preference
 
-  // Fetch meals from API based on filters
-  const fetchMeals = async () => {
+  // Fetch meals from API based on filters - wrapped with useCallback
+  const fetchMeals = useCallback(async () => {
     setLoading(true);
     try {
       let apiUrl = "https://dorm-dine-hub-server.vercel.app/meals";
 
       // Build query parameters based on filter selections
-      const queryParams = [];
+      const queryParams: string[] = [];
 
       if (search) {
         queryParams.push(`search=${search}`);
@@ -54,7 +54,7 @@ const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
 
       if (sort) {
         // Map UI sort values to API parameters
-        let sortParam;
+        let sortParam: string;
         switch (sort) {
           case "ascending":
             sortParam = "asc";
@@ -94,7 +94,7 @@ const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [search, category, sort]); // Dependencies that fetchMeals relies on
 
   // Handle search button click
   const handleSearch = () => {
@@ -106,7 +106,7 @@ const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
     if (category || sort) {
       fetchMeals();
     }
-  }, [search, category, sort, fetchMeals]);
+  }, [category, sort, fetchMeals]); // Now fetchMeals won't cause unnecessary re-renders
 
   // Calculate pagination
   const indexOfLastMeal = currentPage * mealsPerPage;
