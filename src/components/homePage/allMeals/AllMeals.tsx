@@ -106,7 +106,7 @@ const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
     if (category || sort) {
       fetchMeals();
     }
-  }, [search, category, sort]);
+  }, [search, category, sort, fetchMeals]);
 
   // Calculate pagination
   const indexOfLastMeal = currentPage * mealsPerPage;
