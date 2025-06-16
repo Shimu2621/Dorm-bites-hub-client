@@ -26,13 +26,13 @@ const Footer = () => {
         {/* Grid Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Logo + Title */}
-          <div className="flex md:block items-center gap-4">
+          <div className="flex items-center">
             <Image
               src="/logo/dormlogo.png"
               alt="Dorm Bites Hub Logo"
               width={64}
               height={64}
-              className="w-16 h-16 rounded-full object-cover"
+              className="w-16 h-16 bg-black rounded-full object-cover"
             />
             <span className="text-2xl md:text-3xl italic font-bold text-white">
               ormBites Hub
@@ -111,19 +111,22 @@ const Footer = () => {
         </div>
 
         {/* Newsletter */}
-        <div className="mt-10">
-          <h3 className="text-center md:text-left text-white font-bold text-2xl mb-4">
-            Subscribe to Our Newsletter
-          </h3>
-          <div className="flex flex-col sm:flex-row items-center max-w-2xl mx-auto bg-primary p-6 rounded-md shadow-md gap-3">
-            <Input
-              placeholder="Enter your email..."
-              type="email"
-              className="w-full sm:flex-1 bg-white border border-gray-color focus:ring-2 focus:ring-primary p-4 rounded-md sm:rounded-l-md sm:rounded-r-none"
-            />
-            <button className="w-full sm:w-auto bg-pink-500 hover:bg-blue-800 text-white px-6 py-2 rounded-md sm:rounded-l-none sm:rounded-r-md transition">
-              Subscribe
-            </button>
+        {/* Newsletter */}
+        <div className="mt-10 ">
+          <div className="max-w-2xl mx-auto">
+            <h3 className="text-left text-white font-bold text-2xl mb-4">
+              Subscribe to Our Newsletter
+            </h3>
+            <div className="flex flex-col sm:flex-row items-stretch bg-primary p-6 rounded-md shadow-md ">
+              <Input
+                placeholder="Enter your email..."
+                type="email"
+                className="w-full sm:flex-1 bg-white border border-gray-color focus:ring-2 focus:ring-primary px-4 py-4 rounded-md sm:rounded-l-md sm:rounded-r-none"
+              />
+              <button className="w-full sm:w-auto bg-pink-500 hover:bg-blue-800 text-white px-5 py-1 rounded-md sm:rounded-l-none sm:rounded-r-md transition">
+                Subscribe
+              </button>
+            </div>
           </div>
         </div>
 

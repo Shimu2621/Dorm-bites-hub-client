@@ -50,7 +50,7 @@ const Navbar = () => {
     <Card className="bg-background py-3 px-3 border-0 rounded-none shadow-sm">
       <Container className="w-full flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center">
           <Image
             src="/logo/dormlogo.png"
             alt="Dorm Bites Hub Logo"
@@ -58,7 +58,7 @@ const Navbar = () => {
             height={50}
             className="w-14 h-14 rounded-full object-cover"
           />
-          <span className="text-xl italic font-bold text-gray-color">
+          <span className="-ml-3 text-xl italic font-bold text-gray-color">
             ormBites Hub
           </span>
         </div>
