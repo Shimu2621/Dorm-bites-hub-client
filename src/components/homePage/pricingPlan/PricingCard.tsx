@@ -31,7 +31,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   const router = useRouter(); //For Next.js project we can't use useNavigate() hook so I used useRouter() hook
 
   const handleBuyNow = () => {
-    router.push(`/checkout?plan=${name}&price=${price}`);
+    router.push(`/checkout?plan=${badge_name}`);
   };
 
   return (

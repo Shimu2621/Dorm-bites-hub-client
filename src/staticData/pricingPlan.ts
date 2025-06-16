@@ -18,7 +18,7 @@ const plans = [
   },
   {
     name: "Gold",
-    price: 200,
+    price: 150,
     badge_image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnLe0z2q5Ox_Foo3TfJKt2eLn7zifrqqowPV3PY2nfUK2MksDU7Gc5qccJJYfIvhnTt4&usqp=CAU",
     description:
@@ -35,7 +35,7 @@ const plans = [
   },
   {
     name: "Platinum",
-    price: 300,
+    price: 200,
     badge_image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdNXlg0UstP2mFr9ArwyD3tAeZVYDF74QtJ-StKdj4wvMQNVPxzW61Aa9tMGj9AgwPw4&usqp=CAU",
     description:
