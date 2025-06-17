@@ -4,10 +4,10 @@ import React from "react";
 const UpComingMealsPage = async () => {
   try {
     const res = await fetch(
-      "https://dorm-dine-hub-server.vercel.app/upcoming-meals",
-      {
-        cache: "no-store", // Ensures fresh data fetch
-      }
+      "https://dorm-dine-hub-server.vercel.app/upcoming-meals"
+      // {
+      //   cache: "no-store", // Ensures fresh data fetch
+      // }
     );
 
     if (!res.ok) {
