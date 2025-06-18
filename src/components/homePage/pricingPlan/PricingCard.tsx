@@ -12,6 +12,7 @@ import { Check } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "react-hot-toast"; // Add this import
 
 interface PricingCardProps {
   badge_name: string;
@@ -28,9 +29,30 @@ const PricingCard: React.FC<PricingCardProps> = ({
   description,
   benefits,
 }) => {
-  const router = useRouter(); //For Next.js project we can't use useNavigate() hook so I used useRouter() hook
+  const router = useRouter();
 
   const handleBuyNow = () => {
+    // Check if user is logged in
+    // Replace this with your actual authentication check
+    const isLoggedIn = localStorage.getItem("access-token");
+    // Alternative: const token = localStorage.getItem('authToken');
+    // Alternative: const user = getCurrentUser(); // your auth function
+
+    console.log(isLoggedIn);
+
+    if (!isLoggedIn) {
+      // Show toast message
+      toast.error("Please login first to access the next page", {
+        duration: 4000,
+        position: "top-center",
+      });
+
+      // Navigate to login page
+      router.push("/login");
+      return;
+    }
+
+    // User is authenticated, proceed to checkout
     router.push(`/checkout?plan=${badge_name}`);
   };
 
@@ -57,8 +79,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         <ul className="text-center space-y-3">
           {benefits.map((benefit, index) => (
             <li key={index} className="flex items-center gap-2">
-              <Check className="w-4 h-4  rounded-full bg-blue-500 text-white" />{" "}
-              {/* ✅ Blue check icon */}
+              <Check className="w-4 h-4  rounded-full bg-blue-500 text-white" />
               {benefit}
             </li>
           ))}
