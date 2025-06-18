@@ -9,11 +9,10 @@ const AboutPage = () => {
         <Image
           src="https://townsquare.media/site/10/files/2022/08/attachment-RS37782_GettyImages-502840530.jpg?w=780&q=75"
           alt="Banner Image"
-          layout="fill"
-          objectFit="cover"
+          fill
           quality={100}
           priority
-          className="w-full h-full"
+          className="w-full h-full object-cover"
         />
 
         {/* opacity for shade */}

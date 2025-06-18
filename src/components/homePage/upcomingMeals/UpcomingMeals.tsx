@@ -25,7 +25,7 @@ const UpcomingMeals: React.FC<UpcomingMealsProps> = ({ data }) => {
   }
 
   return (
-    <div className="bg-background pt-20">
+    <div className="bg-background ">
       {/* Banner Section */}
       <div className="relative w-full h-[30vh] md:h-[40vh] ">
         <Image
