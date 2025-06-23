@@ -1,9 +1,11 @@
 "use client";
 
-import Lottie from "lottie-react";
 import erroranimation from "../../public/erroranimation.json";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import dynamic from "next/dynamic";
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+
 
 const NotFoundPage = () => {
   return (

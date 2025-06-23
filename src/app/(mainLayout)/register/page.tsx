@@ -10,8 +10,11 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Lottie from "lottie-react";
 import signupanimation from "../../../../public/signupanimation.json";
+import dynamic from "next/dynamic";
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+
 
 // TypeScript interface for form data
 interface FormData {

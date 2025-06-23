@@ -1,10 +1,13 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Container from "@/utils/container/Container";
-import Lottie from "lottie-react";
 import contactanimation from "../../../../public/contactanimation.json";
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+
 
 const ContactPage = () => {
   const form = useRef(null);

@@ -6,19 +6,23 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import useAuth from "@/hooks/useAuth";
-
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import loginAnimation from "../../../../public/signupanimation.json";
 import { UserCredential } from "firebase/auth";
 import axios from "axios";
+
+// Dynamically import Lottie with SSR disabled
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 interface LoginForm {
   email: string;
   password: string;
 }
+
+// rest of your component stays the same...
 const LoginPage: React.FC = () => {
   const router = useRouter();
   const { signIn, googleSignIn } = useAuth();
