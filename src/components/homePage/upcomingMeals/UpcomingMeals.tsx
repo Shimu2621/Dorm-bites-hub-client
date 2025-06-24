@@ -41,12 +41,12 @@ const UpcomingMeals: React.FC<UpcomingMealsProps> = ({ data }) => {
         {/* opacity for shade */}
         <div className="absolute inset-0 bg-black/70 ">
           {/* text */}
-          <div className="relative mt-20 text-white flex flex-col items-center justify-center">
+          <div className="relative mt-20 text-default-white flex flex-col items-center justify-center">
             <h2 className="text-2xl md:text-5xl font-bold mb-4">
               {" "}
               Discover Up Coming Meals!
             </h2>
-            <p className="md:text-xl text-lg text-center font-bold px-4">
+            <p className="md:text-xl text-lg text-center font-semibold px-4">
               Discover a variety of mouth-watering meals with fresh ingredients
               and rich flavors. Whether you&apos;re craving <br /> a hearty
               breakfast, a nutritious lunch, or a delightful dinner, explore our

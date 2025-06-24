@@ -13,7 +13,8 @@
   --font-mono: var(--font-geist-mono);
   /* custom color declare */
   --color-gray-color: var(--gray-color);
-  --color-default-white: var(--default-white)
+  --color-default-white: var(--default-white);
+  --color-light-gray: var(--light-gray);
 }
 
 :root {
@@ -56,6 +57,7 @@
   --text-white:oklch(0.145 0 0);
   --icon-white: oklch(0.145 0 0);
   --white: #FFFFFF;
+ --light-gray: #4A5565; 
 }
 
 .dark {
@@ -92,11 +94,12 @@
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
   /* Custom color */
-  --gray-color: #fff;
+  --gray-color: #949494;
   --default-white: #ffffff;
  --text-white: #fff;
  --icon-white: #0c078d;
  --white: #303030;
+--light-gray: #ffffff;
 }
 
 @theme inline {

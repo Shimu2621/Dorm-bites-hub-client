@@ -134,12 +134,12 @@ const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
         {/* opacity for shade */}
         <div className="absolute inset-0 bg-black/70">
           {/* text */}
-          <div className="relative mt-20 text-white flex flex-col items-center justify-center">
+          <div className="relative mt-20 text-default-white flex flex-col items-center justify-center">
             <h2 className="text-4xl md:text-7xl font-bold mb-4">
               {" "}
               Explore Delicious Meals!
             </h2>
-            <p className="md:text-2xl text-lg text-center font-bold px-4">
+            <p className="md:text-xl text-lg text-center font-semibold px-4">
               Discover a variety of mouth-watering meals with fresh ingredients
               and rich flavors. Whether you&apos;re craving <br /> a hearty
               breakfast, a nutritious lunch, or a delightful dinner, explore our
@@ -152,7 +152,7 @@ const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
       <Container>
         {/* Search & Filter Section */}
         <div className="flex flex-col md:flex-row items-center bg-gray-800 p-7 max-w-4xl mx-auto rounded-sm join shadow-md mb-2 mt-20">
-          <div className="flex w-full mx-auto gap-0">
+          <div className="flex w-full mx-auto gap-0 text-light-gray">
             {/* Search Input */}
             <Input
               placeholder="Search meals..."
@@ -198,7 +198,7 @@ const AllMeals = ({ initialMeals }: { initialMeals: IMealTypes[] }) => {
             {/* Search Button */}
             <button
               onClick={handleSearch}
-              className="btn bg-primary text-white px-4 rounded-r-md cursor-pointer hover:bg-blue-800"
+              className="btn bg-primary text-default-white px-4 rounded-r-md cursor-pointer hover:bg-blue-800"
             >
               Search
             </button>

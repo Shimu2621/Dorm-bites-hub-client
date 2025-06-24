@@ -32,7 +32,7 @@ const MealsCard = ({ meal }: { meal: IMealTypes }) => {
         </div>
       </CardContent>
       <CardHeader className="px-3 pt-0">
-        <CardTitle className="text-gray-600 font-bold text-lg line-clamp-1">
+        <CardTitle className="text-light-gray font-bold text-lg line-clamp-1">
           {meal.mealTitle}
         </CardTitle>
         <CardDescription>

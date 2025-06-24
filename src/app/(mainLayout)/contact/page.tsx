@@ -6,8 +6,7 @@ import emailjs from "@emailjs/browser";
 import Container from "@/utils/container/Container";
 import contactanimation from "../../../../public/contactanimation.json";
 
-const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
-
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const ContactPage = () => {
   const form = useRef(null);
@@ -37,7 +36,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="bg-orange-50">
+    <div>
       {/* Contact page section */}
       <div className="h-full min-h-screen max-w-full mx-auto">
         <Container>
@@ -64,7 +63,7 @@ const ContactPage = () => {
               <form className="card-body" ref={form} onSubmit={sendEmail}>
                 {/* Name */}
                 <div className="form-control mb-4">
-                  <label htmlFor="name" className="block text-gray-800">
+                  <label htmlFor="name" className="block text-text-white">
                     Full name
                   </label>
                   <input
@@ -73,12 +72,12 @@ const ContactPage = () => {
                     id="name"
                     placeholder="full name"
                     required
-                    className="w-full p-3 input input-bordered border border-gray-100 rounded-md bg-slate-100 shadow-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full p-3 text-gray-color input input-bordered border border-gray-100 rounded-md bg-slate-100 shadow-md focus:outline-none focus:ring-2 focus:ring-orange-500"
                   />
                 </div>
                 {/* Email */}
                 <div className="form-control mb-4">
-                  <label htmlFor="email" className="block text-gray-800">
+                  <label htmlFor="email" className="block text-text-white">
                     Email
                   </label>
                   <input
@@ -87,12 +86,12 @@ const ContactPage = () => {
                     id="email"
                     placeholder="email"
                     required
-                    className="w-full p-3 input input-bordered border border-gray-100 rounded-md shadow-md bg-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full p-3 text-gray-color input input-bordered border border-gray-100 rounded-md shadow-md bg-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   />
                 </div>
                 {/* Subject */}
                 <div className="form-control mb-4">
-                  <label htmlFor="name" className="block text-gray-800">
+                  <label htmlFor="name" className="block text-text-white">
                     Subject
                   </label>
                   <input
@@ -101,12 +100,12 @@ const ContactPage = () => {
                     id="subject"
                     placeholder="subject"
                     required
-                    className="w-full p-3 input input-bordered border border-gray-100 rounded-md shadow-md bg-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full p-3 text-gray-color input input-bordered border border-gray-100 rounded-md shadow-md bg-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   />
                 </div>
                 {/* Message */}
                 <div className="form-control mb-4">
-                  <label htmlFor="name" className="block text-gray-800">
+                  <label htmlFor="name" className="block text-text-white">
                     Message
                   </label>
                   <textarea
@@ -114,12 +113,12 @@ const ContactPage = () => {
                     name="message"
                     placeholder="message"
                     required
-                    className="w-full p-3 border border-gray-100 rounded-md shadow-md bg-slate-100  focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full p-3 text-gray-color border border-gray-100 rounded-md shadow-md bg-slate-100  focus:outline-none focus:ring-2 focus:ring-orange-500"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-primary text-white py-3 rounded-lg shadow-md font-bold hover:bg-blue-600 transition"
+                  className="w-full bg-primary text-default-white py-3 rounded-lg shadow-md font-bold hover:bg-blue-600 transition"
                 >
                   Send
                 </button>

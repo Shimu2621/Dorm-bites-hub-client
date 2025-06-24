@@ -37,7 +37,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ testimonial }) => {
             <h2 className="text-primary font-bold italic text-lg">
               {testimonial?.name}
             </h2>
-            <p className="text-gray-color">{testimonial?.designation}</p>
+            <p className="text-light-gray">{testimonial?.designation}</p>
             <Rating
               style={{ maxWidth: 120 }}
               value={testimonial.rating || 5}
@@ -51,7 +51,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ testimonial }) => {
       {/* Feedback */}
       <CardDescription className="relative text-gray-600 text-md mt-6 italic px-6 sm:px-10">
         <Quote className="text-blue-500 w-5 h-5 absolute right-8 -bottom-3 hidden sm:block" />
-        {testimonial?.feedback}
+        <span className="text-light-gray">{testimonial?.feedback}</span>
         <Quote className="text-blue-500 w-5 h-5 absolute left-0 -top-3 rotate-180" />
       </CardDescription>
     </Card>

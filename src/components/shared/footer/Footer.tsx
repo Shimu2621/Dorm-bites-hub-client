@@ -34,7 +34,7 @@ const Footer = () => {
               height={64}
               className="w-16 h-16 bg-black rounded-full object-cover"
             />
-            <span className="text-2xl md:text-3xl italic font-bold text-white">
+            <span className="text-2xl md:text-3xl italic font-bold text-default-white">
               ormBites Hub
             </span>
           </div>
@@ -54,7 +54,10 @@ const Footer = () => {
                 { name: "Login", path: "/login" },
               ].map((item) => (
                 <li key={item.name}>
-                  <Link href={item.path} className="hover:underline">
+                  <Link
+                    href={item.path}
+                    className=" text-default-white hover:underline"
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -104,9 +107,11 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h3 className="text-2xl font-bold text-primary mb-4">Contact Us</h3>
-            <p>Email: contact@website.com</p>
-            <p>Phone: +123-456-7890</p>
-            <p>Address: 123 Main St, Orlando, FL, USA</p>
+            <p className="text-default-white">Email: contact@website.com</p>
+            <p className="text-default-white">Phone: +123-456-7890</p>
+            <p className="text-default-white">
+              Address: 123 Main St, Orlando, FL, USA
+            </p>
           </div>
         </div>
 
@@ -114,7 +119,7 @@ const Footer = () => {
         {/* Newsletter */}
         <div className="mt-10 ">
           <div className="max-w-2xl mx-auto">
-            <h3 className="text-left text-white font-bold text-2xl mb-4">
+            <h3 className="text-left text-default-white font-bold text-2xl mb-4">
               Subscribe to Our Newsletter
             </h3>
             <div className="flex flex-col sm:flex-row items-stretch bg-primary p-6 rounded-md shadow-md ">
@@ -123,7 +128,7 @@ const Footer = () => {
                 type="email"
                 className="w-full sm:flex-1 bg-white border border-gray-color focus:ring-2 focus:ring-primary px-4 py-4 rounded-md sm:rounded-l-md sm:rounded-r-none"
               />
-              <button className="w-full sm:w-auto bg-pink-500 hover:bg-blue-800 text-white px-5 py-1 rounded-md sm:rounded-l-none sm:rounded-r-md transition">
+              <button className="w-full sm:w-auto bg-pink-500 hover:bg-blue-800 text-default-white px-5 py-1 rounded-md sm:rounded-l-none sm:rounded-r-md transition">
                 Subscribe
               </button>
             </div>
@@ -131,7 +136,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="mt-10 text-center border-t border-gray-700 pt-4">
+        <div className="mt-10 text-center text-default-white border-t border-gray-700 pt-4">
           <p>
             &copy; {new Date().getFullYear()} OurWebsite. All rights reserved.
           </p>

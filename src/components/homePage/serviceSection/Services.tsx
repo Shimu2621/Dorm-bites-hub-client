@@ -29,7 +29,7 @@ const Services = () => {
                 height={80}
                 className="w-20 h-20 object-cover"
               />
-              <h4 className="text-gray-color text-lg font-bold mt-4">
+              <h4 className="text-light-gray text-lg font-bold mt-4">
                 {service?.title}
               </h4>
               <p className="text-gray-color text-sm">{service?.status}</p>

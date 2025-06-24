@@ -63,7 +63,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           {badge_name}{" "}
         </CardTitle>
         <p className="text-lg flex flex-col text-gray-color">
-          <span className="font-bold text-5xl text-gray-700">${price}</span> /
+          <span className="font-bold text-5xl text-light-gray">${price}</span> /
           month
         </p>
       </CardHeader>
@@ -75,7 +75,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           height={128}
           className="rounded-full w-20 h-20 object-contain mx-auto"
         />
-        <p className="text-gray-700 mb-4">{description}</p>
+        <p className="text-light-gray mb-4">{description}</p>
         <ul className="text-center space-y-3">
           {benefits.map((benefit, index) => (
             <li key={index} className="flex items-center gap-2">
@@ -88,7 +88,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
       <CardFooter className="pt-10">
         <Button
           onClick={handleBuyNow}
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white hover"
+          className="w-full bg-blue-500 hover:bg-blue-600 text-default-white hover"
         >
           Buy Now
         </Button>

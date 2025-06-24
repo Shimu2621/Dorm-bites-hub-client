@@ -282,12 +282,12 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
                 className="w-110 h-110 p-2 bg-white border-8 border-gray-500 object-cover rounded-sm shadow-2xs"
                 unoptimized={true}
               />
-              <Button className="bg-pink-700 rounded-sm absolute top-4 left-4">
+              <Button className="bg-pink-700 text-default-white rounded-sm absolute top-4 left-4">
                 {meal.mealType}
               </Button>
             </div>
             <div className="mt-4 flex items-center justify-between gap-4">
-              <Button className="text-md text-white ">
+              <Button className="text-md text-default-white ">
                 Price: ${meal.price}
               </Button>
               <Button
@@ -297,7 +297,7 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
                   hasUserLiked
                     ? "bg-red-500 hover:bg-red-600"
                     : "bg-pink-500 hover:bg-pink-600"
-                } text-white px-4 py-2 rounded`}
+                } text-default-white px-4 py-2 rounded`}
               >
                 {hasUserLiked ? (
                   <ThumbsDown size={18} />
@@ -322,21 +322,21 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
               />
             </div>
 
-            <p className="text-lg text-gray-500 font-semibold">
+            <p className="text-lg text-light-gray font-semibold">
               <span className="text-yellow-600 font-bold italic text-xl">
                 Reviews:
               </span>{" "}
               ({meal.reviews})
             </p>
 
-            <p className="text-lg text-gray-600 font-semibold">
+            <p className="text-lg text-light-gray font-semibold">
               <span className="text-yellow-600 font-bold italic text-xl">
                 Posted by:
               </span>{" "}
               ({meal.adminName})
             </p>
 
-            <p className="text-lg text-gray-600 font-semibold">
+            <p className="text-lg text-light-gray font-semibold">
               <span className="text-yellow-600 font-bold italic text-xl">
                 Posted date:
               </span>{" "}
@@ -346,16 +346,16 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
               <h1 className="text-xl  text-yellow-600 italic font-bold">
                 Description:
               </h1>
-              <p className="text-gray-600">{meal.description}</p>
+              <p className="text-light-gray">{meal.description}</p>
             </div>
             <div className="mt-6 ">
               <h1 className="text-xl mb-2 text-yellow-600 italic font-bold ">
                 Ingredients:
               </h1>
-              <ul className="pl-5  text-gray-600 flex flex-wrap gap-x-4 gap-y-2">
+              <ul className="pl-5  text-light-gray flex flex-wrap gap-x-4 gap-y-2">
                 {meal.ingredients.map((ingredient, index) => (
                   <li key={index} className="list-disc flex items-center">
-                    <span className="w-2 h-2 bg-gray-700 rounded-full mr-2"></span>
+                    <span className="w-2 h-2 bg-light-gray rounded-full mr-2"></span>
                     {ingredient}
                   </li>
                 ))}
@@ -363,7 +363,7 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
             </div>
             <div className="w-full mt-10 flex gap-4">
               <Button
-                className="flex-1 bg-yellow-600 hover:bg-yellow-700 text-white"
+                className="flex-1 bg-yellow-600 hover:bg-yellow-700 text-default-white"
                 onClick={() => setShowRequestModal(true)}
               >
                 Make Meal Request
@@ -382,7 +382,7 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
               </DialogTitle>
             </DialogHeader>
             <div className="py-4">
-              <p className="text-gray-700">
+              <p className="text-light-gray">
                 Are you sure you want to unlike{" "}
                 <span className="font-semibold">{mealData.mealTitle}</span>?
               </p>
@@ -397,7 +397,7 @@ const MealsDetails: React.FC<MealCardProps> = ({ meal }) => {
               </Button>
               <Button
                 onClick={handleUnlike}
-                className="bg-red-500 hover:bg-red-600 text-white"
+                className="bg-red-500 hover:bg-red-600 text-default-white"
               >
                 Unlike
               </Button>
