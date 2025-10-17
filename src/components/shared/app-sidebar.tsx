@@ -45,7 +45,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent className="w-70 bg-blue-700 text-white flex flex-col">
         <SidebarGroup>
           <SidebarHeader className="bg-blue-600 text-white p-4">
-            <div className="font-bold text-lg">DORM DINE HUB</div>
+            <div className="font-bold text-lg">DORMBITES HUB</div>
           </SidebarHeader>
 
           <SidebarGroupContent className="pt-4">
